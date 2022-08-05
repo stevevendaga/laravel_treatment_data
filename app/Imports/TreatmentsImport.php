@@ -17,13 +17,13 @@ class TreatmentsImport implements ToModel,WithHeadingRow
     {
         
         return new treatment_data([
-            'Data1'     => $row['name'],
+            'Data1'     => $row['idcontrato'],
             'Data2'    => $row['tipocontrato'],
             'Data3'    => $row['tipoprocedimento'],
             'Data4'    => $row['objectocontrato'],
             'Data5'    => $row['adjudicantes'],
-            'Winning_company'    => $row['adjudicatarios'],
-            //'Data7'    => $row['datapublicacao'],
+            'Winning_company'=> $row['adjudicatarios'],
+            //'Data7'    =>$row['datapublicacao'],
             //'Date'    =>$row['datacelebracaocontrato'],
             'Amount'    => $row['precocontratual'],
             'CPV'    => $row['cpv'],

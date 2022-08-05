@@ -21,10 +21,5 @@ class treatment_data extends Model
     'Data11',
     'Data12',
     'Data13'
-    
     ];   
-    protected $casts = [
-        'Date' => 'datetime:d/m/Y',
-        'Data7' => 'datetime:d/m/Y',
-    ];
 }
