@@ -15,6 +15,7 @@ class TreatmentsImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
+        
         return new treatment_data([
             'Data1'     => $row['name'],
             'Data2'    => $row['tipocontrato'],
