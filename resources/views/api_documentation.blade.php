@@ -17,13 +17,13 @@
         <div class=" card-content table-responsive">
             <table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
-                <th>URL</th>
+                <th>Endpoints</th>
                 <th>Description</th>
                 </thead>
                 <tbody>
                         <tr>
                             <td>
-                              api/treatments
+                              /api/treatments
                             </td>
                             <td>
                                 Upload user treatment data
@@ -31,7 +31,7 @@
                         </tr>
                         <tr>
                             <td>
-                              api/treatments/{id}
+                              /api/treatments/{id}
                             </td>
                             <td>
                                 Get all data for a given contract
@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td>
-                              api/treatments/date/{date}
+                              /api/treatments/date/{date}
                             </td>
                             <td>
                                 Search data based on date
@@ -47,7 +47,7 @@
                         </tr>
                         <tr>
                             <td>
-                              api/treatments/amount/{amount1}/{amount2}
+                              /api/treatments/amount/{amount1}/{amount2}
                             </td>
                             <td>
                                 Search data based on Amount(range)
@@ -55,7 +55,7 @@
                         </tr>
                         <tr>
                             <td>
-                            api/treatments/winingcompay/{company}
+                            /api/treatments/winingcompay/{company}
                             </td>
                             <td>
                                 Search data based on winning company
@@ -63,7 +63,7 @@
                         </tr>
                         <tr>
                             <td>
-                              api/treatments/readstatus/{id}
+                              /api/treatments/readstatus/{id}
                             </td>
                             <td>
                                Get contract read status
