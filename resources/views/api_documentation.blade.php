@@ -50,7 +50,7 @@
                               api/treatments/amount/{amount1}/{amount2}
                             </td>
                             <td>
-                                Search data based on amount(range)
+                                Search data based on Amount(range)
                             </td>
                         </tr>
                         <tr>
