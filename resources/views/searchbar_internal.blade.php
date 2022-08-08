@@ -25,7 +25,7 @@
         <label>Search by winning company</label>
         <div class="input-group">
             <input type="text" required class="form-control" 
-                name="company" placeholder="Company name">
+                name="company" id="search" placeholder="Company name">
             <div class="input-group-append" id="button-addon2">
                 <button class="btn btn-primary square" type="submit">
                     <i class="ft-upload mr-1"></i> Search</button>

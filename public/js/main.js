@@ -13,3 +13,32 @@ function CheckFileName() {
     }
     return true;
 }
+
+
+$(function () { 
+    var url='/api/treatments/winingcompay/';
+    $("#search").bind("keydown", function (event) {
+        if (event.keyCode === $.ui.keyCode.TAB &&
+        $(this).data("ui-autocomplete").menu.active) {
+            event.preventDefault();
+        }
+    })
+    .autocomplete({
+        minLength: 2,
+        source: function (request, response) {
+            $.getJSON(url, {
+                term: extractLast(request.term)
+            }, response);
+        },
+    });
+});
+function split(val) {
+    return val.split(/,\s*/);
+}
+function extractLast(term) {
+    return split(term).pop();
+}
+$(document).ready(function()
+{
+    $('[data-toggle="popover"]').popover();
+});
