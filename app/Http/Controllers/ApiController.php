@@ -23,74 +23,48 @@ class ApiController extends Controller
     public function process_upload_status(){
         //do something
     }
-    //============CODE FOR EXTERNAL USE=======================
-    //get data by date
-    public function getData_date($date){
-        $data = DB::table('treatment_datas')
-                ->where('date', $date)->get();
-        return response()->json($data);
-    }
-    //get data by amount in range
-    public function getData_amount($amount1,$amount2){
-        $data = DB::table('treatment_datas')
-                    ->whereBetween('Amount',[$amount1,$amount2])->get();
-        return response()->json($data);
-    }
-     //get data by wining company
-    public function getData_company($company){
-        $data = DB::table('treatment_datas')
-                ->where('Winning_company', $company)->get();
-        return response()->json($data);
-    }
-    //get data by id for
-    public function getData_Id($id){
-        $data = DB::table('treatment_datas')->find($id);
-        return response()->json($data);
-    }
-    //get contract read status (by id)
-    public function get_read_status($id){
-        $data=DB::table('treatment_datas')
-                ->where('id', $id)->value('read_status');
-        return response()->json($data);
-    }
- //============END CODE FOR EXTERNAL USE=======================
 
-    //==========CODE FOR INTERNAL USE ==================//
-    //get data by id for internal use
-    public function getDataId_internal(){
-        $id=$_GET['id'];
-        $data = DB::table('treatment_datas')
-            ->where('id',$id)->get();
-        return view('index',)->with('data', $data);
+    //Get data by id
+    public function getdatabyid(Request $request){
+        $dataid = $request->dataid;
+        $employees = DB::table('treatment_datas')->select('*')
+                        ->where('id', $dataid)->get();
+        $response['data'] = $employees;
+        return response()->json($response);
     }
-    //get data by date
-    public function getDataDate_internal(){
-        $date=$_GET['date'];
-        $data = DB::table('treatment_datas')
-            ->where('date', $date)->get();
-        return view('index',)->with('data', $data);
+    //Get data by date
+    public function getdatabydate(Request $request){
+        $dataid = $request->dataid;
+        $employees = DB::table('treatment_datas')->select('*')
+                        ->where('date', $dataid)->get();
+        $response['data'] = $employees;
+        return response()->json($response);
     }
-    //get data by company
-    public function getDataCompany_internal(){
-        $company=$_GET['company'];
-        $data = DB::table('treatment_datas')
-                    ->where('Winning_company',$company)->get();
-        return view('index',)->with('data', $data);
+    //get data by wining company
+    public function getdatabycompany(Request $request){
+        $dataid = $request->dataid;
+        $employees = DB::table('treatment_datas')->select('*')
+                        ->where('winning_company', $dataid)->get();
+        $response['data'] = $employees;
+        return response()->json($response);
     }
-     //get data by company
-     public function getDataAmount_internal(){
-        $amount1=$_GET['amount1'];
-        $amount2=$_GET['amount2'];
-        $data = DB::table('treatment_datas')
-                    ->whereBetween('Amount',[$amount1,$amount2])->get();
-        return view('index',)->with('data', $data);
+    //get data by wining company
+    public function getdatabyamount(Request $request){
+        $amount1 = $request->amount1;
+        $amount2 = $request->amount2;
+        $employees = DB::table('treatment_datas')->select('*')
+                        ->whereBetween('amount',[$amount1,$amount2])->get();
+        $response['data'] = $employees;
+        return response()->json($response);
     }
-     //get data by company
-     public function getDataReadStatus_internal(){
-        $id=$_GET['readstatusid'];
-        $data=DB::table('treatment_datas')
-                ->where('id', $id)->value('read_status');
-        return view('index',)->with('data', $data);
+    //get contract read status
+    public function get_read_status(Request $request){
+        $dataid = $request->dataid;
+        $employees = DB::table('treatment_datas')->select('read_status','id')
+                        ->where('id', $dataid)->get();
+        $response['data'] = $employees;
+        return response()->json($response);
     }
-//==========END CODE FOR INTERNAL USE ==================//
+   
+ 
 }

@@ -27,3 +27,7 @@ Route::get('/getDataAmount', [TreatmentsController::class,'getDataAmount']);
 Route::get('/getDataReadStatus', [TreatmentsController::class,'getDataReadStatus']);
 Route::get('/getDataUploadStatus', [TreatmentsController::class,'getDataUploadStatus']);
 
+
+Route::get('/test', [TreatmentsController::class, 'testpage']);
+Route::get('/getUsers', [TreatmentsController::class, 'getUsers']);
+Route::post('/treatments/{id}', [TreatmentsController::class, 'getDatabyid']);

@@ -95,4 +95,48 @@ class TreatmentsController extends Controller
     public function api_documentation(){
         return view('api_documentation');
     }
+
+    // Fetch records
+    public function getEmployees(Request $request){
+        $search = $request->search;
+  
+        if($search == ''){
+            $employees = DB::table('treatment_datas')->select('id','data2')->limit(5)->get();
+        }else{
+            $employees = DB::table('treatment_datas')->select('id','data2')->where('data2', 'like', '%' .$search . '%')->limit(5)->get();
+        }
+  
+        $response = array();
+        foreach($employees as $employee){
+           $response[] = array("value"=>$employee->id,"label"=>$employee->data2);
+        }
+  
+        return response()->json($response); 
+     } 
+    public function testpage()
+    {
+        return view('test');
+    }
+
+    public function getUsers(){
+ 
+        $employees = DB::table('treatment_datas')->orderby('id','asc')->select('*')->get(); 
+         
+        // Fetch all records
+        $response['data'] = $employees;
+    
+        return response()->json($response);
+      }
+    
+      public function getDatabyid(Request $request){
+    
+         $dataid = $request->dataid;
+    
+         $employees = DB::table('treatment_datas')->select('*')->where('id', $dataid)->get();
+    
+         // Fetch all records
+         $response['data'] = $employees;
+    
+         return response()->json($response);
+      }
 }

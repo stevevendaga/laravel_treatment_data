@@ -17,19 +17,19 @@ class TreatmentsImport implements ToModel,WithHeadingRow
     {
         
         return new treatment_data([
-            'Data1'     => $row['nanuncio'],
-            'Data2'    => $row['tipocontrato'],
-            'Data3'    => $row['tipoprocedimento'],
-            'Data4'    => $row['objectocontrato'],
-            'Data5'    => $row['adjudicantes'],
-            'Winning_company'=> $row['adjudicatarios'],
-            'Data7'    =>$this->transformDate($row['datapublicacao']),
-            'Date'    =>$this->transformDate($row['datacelebracaocontrato']),
-            'Amount'    => $row['precocontratual'],
-            'CPV'    => $row['cpv'],
-            'Data11'    => $row['prazoexecucao'],
-            'Data12'    => $row['localexecucao'],
-            'Data13'    => $row['fundamentacao'],
+            'data1'     => $row['nanuncio'],
+            'data2'    => $row['tipocontrato'],
+            'data3'    => $row['tipoprocedimento'],
+            'data4'    => $row['objectocontrato'],
+            'data5'    => $row['adjudicantes'],
+            'winning_company'=> $row['adjudicatarios'],
+            'data7'    =>$this->transformDate($row['datapublicacao']),
+            'date'    =>$this->transformDate($row['datacelebracaocontrato']),
+            'amount'    => $row['precocontratual'],
+            'cpv'    => $row['cpv'],
+            'data11'    => $row['prazoexecucao'],
+            'data12'    => $row['localexecucao'],
+            'data13'    => $row['fundamentacao'],
         ]);
     }
     public function transformDate($value, $format = 'Y-m-d')

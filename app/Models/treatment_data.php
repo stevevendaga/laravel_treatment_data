@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class treatment_data extends Model
 {
     use HasFactory;
-    protected $fillable = ['Data1',
-    'Data2',
-    'Data3',
-    'Data4',
-    'Data5',
-    'Winning_company',
-    'Data7',
-    'Date',
-    'Amount',
-    'CPV',
-    'Data11',
-    'Data12',
-    'Data13'
+    protected $fillable = ['data1',
+    'data2',
+    'data3',
+    'data4',
+    'data5',
+    'winning_company',
+    'data7',
+    'date',
+    'amount',
+    'cpv',
+    'data11',
+    'data12',
+    'data13'
     ];   
 }
